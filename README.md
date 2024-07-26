@@ -20,7 +20,17 @@ This project deploys the "hello-world" Docker app to an Azure Web App using Terr
 
 
 4.  Deployment 
+   - Initialize each Terraform Workspace:
+   - terraform workspace new dev
+   - terraform workspace new staging
+   - terraform workspace new production
+   - Switch Workspaces:
+   - terraform workspace select dev
+   - terraform workspace select staging
+   - terraform workspace select production
+   - On each work space Init, Plan and Apply:
    - Initialize Terraform: `terraform init`
+   - Initialize Terraform: `terraform Plan`
    - Apply the configuration: `terraform apply`
 
 ## High-Level Design (HLD)
@@ -40,6 +50,20 @@ Security: Network Security Groups and Application Security Groups.
 -  Security : Using a SystemAssigned identity for the App Service.
 -  Scalability : The App Service Plan can be scaled up or out as needed.
 -  Observability : Azure App Service provides built-in monitoring and logging features.
+  
+### Description of the files
+variables.tf: Contains all the variables used in your Terraform configuration.
+outputs.tf: Contains the output definitions.
+provider.tf: Configures the Azure provider.
+resource_group.tf: Manages the Azure resource group.
+app_service.tf: Manages the Azure App Service Plan and App Service.
+frontdoor.tf: Configures Azure Front Door.
+application_gateway.tf: Sets up the Application Gateway with WAF.
+key_vault.tf: Manages Azure Key Vault for secrets management.
+monitoring.tf: Enables monitoring and logging with Azure Monitor and Application Insights.
+network.tf: Configures the virtual network and subnet.
+security.tf: Configures network security settings.
+README.md: Documentation including instructions, high-level design, and future enhancements.
 
 ## Future Enhancements
 -  CI/CD Pipeline : Implementing a CI/CD pipeline for automated deployments.
@@ -47,4 +71,5 @@ Security: Network Security Groups and Application Security Groups.
 -  Security : Adding custom domain and SSL/TLS certificates.
 
 ## Extra Credit
-- Implement a CI/CD pipeline using Azure DevOps.
+- Implemented a CI/CD pipeline files name:
+- workflows/ci-cd.yaml
