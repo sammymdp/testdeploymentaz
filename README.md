@@ -33,6 +33,7 @@ Application Gateway: Additional WAF and load balancing.
 Key Vault: Secure storage for secrets.
 Monitoring: Azure Monitor and Application Insights.
 Security: Network Security Groups and Application Security Groups.
+![image](https://github.com/user-attachments/assets/1508722d-c67b-43e9-8780-d05971e43c44)
 
 ### Design Decisions
 -  Security : Using a SystemAssigned identity for the App Service.
